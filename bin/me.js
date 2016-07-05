@@ -219,6 +219,9 @@ module.exports = function(env) {
                 }
                 if (typeof item === 'function') {
                   url = item(user_fetcher);
+                  if (typeof url === 'object') {
+                    return callback(null, fieldMap(url, content.fields, filter));
+                  }
                   return apiRequest({
                     apiUrl: url,
                     headers: {
