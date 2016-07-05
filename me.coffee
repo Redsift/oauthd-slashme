@@ -155,6 +155,9 @@ module.exports = (env) ->
 													cb
 							if typeof item == 'function'
 								url = item(user_fetcher)
+								if typeof url == 'object'
+								  return callback(null, fieldMap(url, content.fields, filter))
+
 								apiRequest {apiUrl: url, headers: { 'User-Agent': 'Node' } }, provider, oauthio, (err, options) =>
 									return callback AbsentFeatureError('me()') if err
 									options.json = true
