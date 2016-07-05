@@ -146,13 +146,13 @@ module.exports = (env) ->
 													for k of item.export
 														value = item.export[k](body)
 														user_fetcher[k] = value
-														cb()
+														cb
 											else
 												body = JSON.parse buffer.toString()
 												for k of item.export
 													value = item.export[k](body)
 													user_fetcher[k] = value
-													cb()
+													cb
 							if typeof item == 'function'
 								url = item(user_fetcher)
 								apiRequest {apiUrl: url, headers: { 'User-Agent': 'Node' } }, provider, oauthio, (err, options) =>

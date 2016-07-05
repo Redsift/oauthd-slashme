@@ -198,7 +198,7 @@ module.exports = function(env) {
                               for (k in item["export"]) {
                                 value = item["export"][k](body);
                                 user_fetcher[k] = value;
-                                results.push(cb());
+                                results.push(cb);
                               }
                               return results;
                             });
@@ -208,7 +208,7 @@ module.exports = function(env) {
                             for (k in item["export"]) {
                               value = item["export"][k](body);
                               user_fetcher[k] = value;
-                              results.push(cb());
+                              results.push(cb);
                             }
                             return results;
                           }
